@@ -5,6 +5,7 @@
  */
 package test_ui;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
@@ -21,12 +22,16 @@ static ThreadManager TM[] = new ThreadManager[100];
      */
     public static void main(String[] args) {
         
-        
+        JFrame JF = new JFrame("BMI");
+        MainPanel MainPanel;
+        LoginPanel Login;
         for(int i = 0;i < 1; i++)
         {
-            JPanel JP = new MainPanel();
-            TM[i] = new ThreadManager(JP);
-        TM[i].start();
+            Login = new LoginPanel();
+            MainPanel = new MainPanel(JF, Login);
+            Login.setParent(MainPanel);
+            TM[i] = new ThreadManager(JF,MainPanel);
+            TM[i].start();
         }
         
         // TODO code application logic here

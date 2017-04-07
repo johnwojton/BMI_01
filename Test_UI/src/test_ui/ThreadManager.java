@@ -21,13 +21,15 @@ public class ThreadManager extends Thread
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     double width = screenSize.getWidth();
     double height = screenSize.getHeight();
-    ThreadManager(JPanel Panel)
+    JFrame JF;
+    ThreadManager(JFrame JF, JPanel Panel)
     {
         ThreadPanel = Panel;
+        this.JF = JF;
     }
     public void run()
     {
-      JFrame JF = new JFrame("BMI Calculator");
+     // JFrame JF = new JFrame("BMI Calculator");
       //JF.setSize(300, 200);
       double startx = width*.37;
       int startx_int = (int)startx;
