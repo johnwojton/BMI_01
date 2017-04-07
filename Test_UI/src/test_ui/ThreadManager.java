@@ -6,6 +6,8 @@
 package test_ui;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -15,20 +17,28 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
  */
 public class ThreadManager extends Thread
 {
-    JPanel ThreadPanel; 
+    JPanel ThreadPanel;
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    double width = screenSize.getWidth();
+    double height = screenSize.getHeight();
     ThreadManager(JPanel Panel)
     {
         ThreadPanel = Panel;
     }
     public void run()
     {
-        JFrame JF = new JFrame();
-        //MainPanel JP = new MainPanel();
-       JF.setDefaultCloseOperation(EXIT_ON_CLOSE );
-        JF.add(ThreadPanel);
-        JF.setVisible(true);
-        JF.setBounds(0, 0, 1000, 1000);
+      JFrame JF = new JFrame("BMI Calculator");
+      //JF.setSize(300, 200);
+      double startx = width*.37;
+      int startx_int = (int)startx;
+      double starty = height*.37;
+      int starty_int = (int)starty;
+     JF.setBounds(startx_int, starty_int, 300, 200);
+     // JF.pack();
+      JF.setResizable(false);
        
-      
+      JF.setDefaultCloseOperation(EXIT_ON_CLOSE);
+      JF.add(ThreadPanel);
+      JF.setVisible(true);
     }
 }

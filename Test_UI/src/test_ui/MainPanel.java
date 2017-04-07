@@ -30,7 +30,7 @@ public class MainPanel extends JPanel
     JButton    Register;
      MainPanel()
      {
-        
+       
         setLayout(new GridBagLayout());
         //this.setBackground(Color.yellow);
         this.setVisible(true);
