@@ -107,6 +107,7 @@ public class LoginPanel extends JPanel implements ActionListener
         {
           RegisterPanel RP = new RegisterPanel();
          Parent.SetCurrentPanel(RP, "Registration");
+         RP.setParent(Parent);
         }
     }
     

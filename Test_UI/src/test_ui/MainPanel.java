@@ -21,20 +21,24 @@ public class MainPanel extends JPanel
 {
     JPanel CurrentPanel;
     JLabel Title;
-    MainPanel(JFrame JF, JPanel Panel)
+    JPanel JP;
+    MainPanel(JFrame JF, JPanel Panel, String Title)
     {
-        Title = new JLabel("Hello");
-        
+        JP = new JPanel();
+        this.Title = new JLabel("");
+        this.Title.setText(Title);
+        JP.add(this.Title);
         CurrentPanel = Panel;
         this.setVisible(true);
        this.setSize(JF.getSize());
         this.setLayout(new BorderLayout());
         this.add(CurrentPanel, BorderLayout.CENTER);
+        this.add(JP, BorderLayout.NORTH);
     }
     JPanel SetCurrentPanel(JPanel Panel, String Title)
     {
         this.Title.setText(Title);
-        JPanel JP = new JPanel();
+        
       
         //JP.setBackground(Color.yellow);
         JP.setSize(50, 50);

@@ -8,21 +8,24 @@ package test_ui;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class RegisterPanel extends JPanel
+public class RegisterPanel extends JPanel implements ActionListener
 {
     GridBagConstraints gbc = new GridBagConstraints();
     JLabel     UserNameLabel;
     JLabel     PasswordLabel;
     JTextField EnterUserName;
     JTextField EnterPassword;
-    JButton    SignIn;
+    JButton    Back;
     JButton    Register;
     XMLFileController XML;
+    MainPanel Parent;
     RegisterPanel()
     {
        setLayout(new GridBagLayout());
@@ -60,14 +63,14 @@ public class RegisterPanel extends JPanel
                 gbc.fill = GridBagConstraints.HORIZONTAL;
                 gbc.anchor = GridBagConstraints.LINE_END;
                 gbc.gridwidth = 2;
-                this.add(SignIn, gbc);
-              /*  
+                this.add(Back, gbc);
+               
                 gbc.gridx = 0;
                 gbc.gridy = 3;
                 gbc.fill = GridBagConstraints.HORIZONTAL;
                 gbc.anchor = GridBagConstraints.LINE_END;
                 gbc.gridwidth = 2;
-                this.add(Register, gbc);*/
+                this.add(Register, gbc);
     }
      void InitVar()
      {
@@ -75,9 +78,34 @@ public class RegisterPanel extends JPanel
            PasswordLabel = new JLabel("Password");
            EnterUserName = new JTextField();
            EnterPassword = new JTextField();
-           SignIn        = new JButton("Sign in");
-           Register      = new JButton("Register");
+           Back          = new JButton("Back");
+           Register      = new JButton("Register Profile");
            XML           = new XMLFileController();
+           
+           Back.addActionListener(this);
+           Register.addActionListener(this);
         
      }
+    public void setParent(MainPanel Parent)
+    {
+        this.Parent = Parent;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) 
+    {
+        Object O = ae.getSource();
+        if(O == Back)
+        {
+            LoginPanel LP = new LoginPanel();
+            LP.setParent(Parent);
+            Parent.SetCurrentPanel(LP, "Log In");
+        }
+        else if(O == Register)
+        {
+            UserInformation NewCustomer;// = UserInformation();
+          //  XMLFileController.XMLWrite(), TOOL_TIP_TEXT_KEY);
+        }
+         
+    }
 }

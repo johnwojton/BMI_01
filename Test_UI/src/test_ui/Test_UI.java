@@ -28,7 +28,7 @@ static ThreadManager TM[] = new ThreadManager[100];
         for(int i = 0;i < 1; i++)
         {
             Login = new LoginPanel();
-            MainPanel = new MainPanel(JF, Login);
+            MainPanel = new MainPanel(JF, Login, "Log in");
             Login.setParent(MainPanel);
             TM[i] = new ThreadManager(JF,MainPanel);
             TM[i].start();

@@ -36,6 +36,17 @@ public class UserInformation
         male, female
     };
     Gender gender;
+    
+    UserInformation()
+    {
+        Name = "";
+        DOB  = new Date(0,0,0);
+        weight = 0;
+        height = 0;
+        UserName = "";
+        Password = "";
+        gender   = Gender.male;
+    }
     public void setWeight(int weight)
     {
         this.weight = weight;
