@@ -10,6 +10,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -103,8 +104,14 @@ public class RegisterPanel extends JPanel implements ActionListener
         }
         else if(O == Register)
         {
-            UserInformation NewCustomer;// = UserInformation();
-          //  XMLFileController.XMLWrite(), TOOL_TIP_TEXT_KEY);
+            UserInformation NewCustomer = new UserInformation();
+            NewCustomer.setUserName(this.EnterUserName.getText());
+            NewCustomer.setPassword(this.EnterPassword.getText());
+            System.out.println(NewCustomer.getUserName());
+             System.out.println(NewCustomer.getPassword());
+              String location = System.getProperty("user.dir") + "\\UserData\\";//RegisterPanel.class.getProtectionDomain().getCodeSource().getLocation();
+              System.out.println(location);
+              XMLFileController.XMLWrite(NewCustomer, location.toString() + "\\UserData_01");
         }
          
     }

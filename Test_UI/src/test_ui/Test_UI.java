@@ -25,7 +25,7 @@ static ThreadManager TM[] = new ThreadManager[100];
         JFrame JF = new JFrame("BMI");
         MainPanel MainPanel;
         LoginPanel Login;
-        for(int i = 0;i < 1; i++)
+        for(int i = 0;i < 6; i++)
         {
             Login = new LoginPanel();
             MainPanel = new MainPanel(JF, Login, "Log in");
