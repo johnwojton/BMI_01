@@ -100,7 +100,7 @@ public class RegisterPanel extends JPanel implements ActionListener
         {
             LoginPanel LP = new LoginPanel();
             LP.setParent(Parent);
-            Parent.SetCurrentPanel(LP, "Log In");
+            Parent.SetCurrentPanel(LP, "Log In", 0, 0);
         }
         else if(O == Register)
         {
@@ -111,7 +111,7 @@ public class RegisterPanel extends JPanel implements ActionListener
              System.out.println(NewCustomer.getPassword());
               String location = System.getProperty("user.dir") + "\\UserData\\";//RegisterPanel.class.getProtectionDomain().getCodeSource().getLocation();
               System.out.println(location);
-              XMLFileController.XMLWrite(NewCustomer, location.toString() + "\\UserData_01");
+              
         }
          
     }

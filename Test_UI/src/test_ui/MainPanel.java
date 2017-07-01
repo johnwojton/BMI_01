@@ -3,6 +3,8 @@ package test_ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,8 +24,14 @@ public class MainPanel extends JPanel
     JPanel CurrentPanel;
     JLabel Title;
     JPanel JP;
+    double ScreenHeight;
+    double ScreenWidth;
     MainPanel(JFrame JF, JPanel Panel, String Title)
     {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        ScreenWidth = screenSize.getWidth();
+        ScreenHeight = screenSize.getHeight();
+        
         JP = new JPanel();
         this.Title = new JLabel("");
         this.Title.setText(Title);
@@ -35,14 +43,29 @@ public class MainPanel extends JPanel
         this.add(CurrentPanel, BorderLayout.CENTER);
         this.add(JP, BorderLayout.NORTH);
     }
-    JPanel SetCurrentPanel(JPanel Panel, String Title)
+   
+    JPanel SetCurrentPanel(JPanel Panel, String Title, int sizex, int sizey)
     {
+        
         this.Title.setText(Title);
         
       
         //JP.setBackground(Color.yellow);
-        JP.setSize(50, 50);
-        JP.setVisible(true);
+       // JP.setSize(50, 50);
+       
+       if(sizex > 0 && sizey > 0)
+       {
+           JP.setSize(sizex, sizey);
+       }
+       else if (sizex == -1 && sizey == -1)
+       {
+           JP.setSize((int)ScreenWidth, (int)ScreenHeight);
+       }
+       else
+       {
+           JP.setSize(sizex, sizey);
+       }
+       JP.setVisible(true);
         JP.add(this.Title);
         
         this.remove(CurrentPanel);
@@ -54,4 +77,5 @@ public class MainPanel extends JPanel
         this.revalidate();
         return CurrentPanel;
     }
+  
 }

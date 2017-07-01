@@ -100,13 +100,16 @@ public class LoginPanel extends JPanel implements ActionListener
         Object O = ae.getSource();
         if(O == this.SignIn)
         {
-           //XMLFileController.XMLReader(TOOL_TIP_TEXT_KEY)
+           RightMenuPanel RMP = new RightMenuPanel();
+           Parent.SetCurrentPanel(RMP, "Right Menu Panel", -1, -1);
+           RMP.setParent(Parent);
+           
             
         }
         else if (O == this.Register)
         {
           RegisterPanel RP = new RegisterPanel();
-         Parent.SetCurrentPanel(RP, "Registration");
+         Parent.SetCurrentPanel(RP, "Registration", 0, 0);
          RP.setParent(Parent);
         }
     }

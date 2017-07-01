@@ -25,14 +25,13 @@ static ThreadManager TM[] = new ThreadManager[100];
         JFrame JF = new JFrame("BMI");
         MainPanel MainPanel;
         LoginPanel Login;
-        for(int i = 0;i < 6; i++)
-        {
+        
             Login = new LoginPanel();
             MainPanel = new MainPanel(JF, Login, "Log in");
             Login.setParent(MainPanel);
-            TM[i] = new ThreadManager(JF,MainPanel);
-            TM[i].start();
-        }
+            TM[0] = new ThreadManager(JF,MainPanel);
+            TM[0].start();
+        
         
         // TODO code application logic here
     }
