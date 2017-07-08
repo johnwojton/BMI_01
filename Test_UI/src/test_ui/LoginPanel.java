@@ -21,9 +21,9 @@ import javax.swing.JTextField;
  *
  * @author wojton
  */
-public class LoginPanel extends JPanel implements ActionListener
+public class LoginPanel extends PanelParent implements ActionListener
 {
-    MainPanel Parent;
+   // MainPanel Parent;
     GridBagConstraints gbc = new GridBagConstraints();
     JLabel     UserNameLabel;
     JLabel     PasswordLabel;
@@ -100,9 +100,9 @@ public class LoginPanel extends JPanel implements ActionListener
         Object O = ae.getSource();
         if(O == this.SignIn)
         {
-           RightMenuPanel RMP = new RightMenuPanel();
+           RightMenuPanel RMP = new RightMenuPanel(Parent);
            Parent.SetCurrentPanel(RMP, "Right Menu Panel", -1, -1);
-           RMP.setParent(Parent);
+          // RMP.setParent(Parent);
            
             
         }
@@ -111,13 +111,14 @@ public class LoginPanel extends JPanel implements ActionListener
           RegisterPanel RP = new RegisterPanel();
          Parent.SetCurrentPanel(RP, "Registration", 0, 0);
          RP.setParent(Parent);
+         
         }
     }
     
-    public void setParent(MainPanel Parent)
+  /*  public void setParent(MainPanel Parent)
     {
         this.Parent = Parent;
     }
-
+*/
    
 }

@@ -21,6 +21,7 @@ import javax.swing.JPanel;
  */
 public class MainPanel extends JPanel
 {
+    JFrame JF;
     JPanel CurrentPanel;
     JLabel Title;
     JPanel JP;
@@ -33,6 +34,7 @@ public class MainPanel extends JPanel
         ScreenHeight = screenSize.getHeight();
         
         JP = new JPanel();
+        this.JF = JF;
         this.Title = new JLabel("");
         this.Title.setText(Title);
         JP.add(this.Title);

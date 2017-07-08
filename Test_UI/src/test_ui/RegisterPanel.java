@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class RegisterPanel extends JPanel implements ActionListener
+public class RegisterPanel extends PanelParent implements ActionListener
 {
     GridBagConstraints gbc = new GridBagConstraints();
     JLabel     UserNameLabel;
@@ -26,7 +26,7 @@ public class RegisterPanel extends JPanel implements ActionListener
     JButton    Back;
     JButton    Register;
     XMLFileController XML;
-    MainPanel Parent;
+
     RegisterPanel()
     {
        setLayout(new GridBagLayout());
@@ -87,10 +87,7 @@ public class RegisterPanel extends JPanel implements ActionListener
            Register.addActionListener(this);
         
      }
-    public void setParent(MainPanel Parent)
-    {
-        this.Parent = Parent;
-    }
+   
 
     @Override
     public void actionPerformed(ActionEvent ae) 

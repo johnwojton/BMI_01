@@ -15,23 +15,36 @@ import javax.swing.JPanel;
  *
  * @author wojton
  */
-public class RightMenuPanel extends JPanel
+public class RightMenuPanel extends PanelParent
 {
     GridBagConstraints gbc = new GridBagConstraints();
     JButton BMI;
     JButton WtHRatio;
     JButton BFP;
     JButton BMR;
-    MainPanel Parent;
-    RightMenuPanel()
+   
+    RightMenuPanel(MainPanel Parent)
     {
+        this.Parent = Parent;
         this.setBackground(Color.yellow);
         this.setVisible(true);
          InitVar();
          setLayout(new GridBagLayout());
-         this.add(BMR, gbc);
-         this.add(BMR, gbc);
-         this.add(BMR, gbc);
+         gbc.gridx = 0;
+         gbc.gridy = 0;
+         gbc.anchor = GridBagConstraints.LINE_START;
+          gbc.fill = GridBagConstraints.HORIZONTAL;
+         this.add(BMI, gbc);
+         gbc.gridx = 1;
+         gbc.gridy = 0;
+          gbc.anchor = GridBagConstraints.LINE_END;
+           gbc.fill = GridBagConstraints.HORIZONTAL;
+         this.add(WtHRatio, gbc);
+         gbc.gridx = 0;
+         gbc.gridy = 1;
+         this.add(BFP, gbc);
+         gbc.gridx = 1;
+         gbc.gridy = 1;
          this.add(BMR, gbc);
     }
     private void InitVar()
@@ -40,11 +53,9 @@ public class RightMenuPanel extends JPanel
         WtHRatio = new JButton("Waist to Height Ratio");
         BFP = new JButton("Body Fat Percentage");
         BMR = new JButton("Basal Metabolic Rate");
+      //  Parent.setSize(700, 700);
+        Parent.JF.setSize(700, 700);
     }
-     public void setParent(MainPanel Parent)
-    {
-        this.Parent = Parent;
-    }
-
+  
    
 }
