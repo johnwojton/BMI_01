@@ -101,7 +101,7 @@ public class LoginPanel extends PanelParent implements ActionListener
         if(O == this.SignIn)
         {
            RightMenuPanel RMP = new RightMenuPanel(Parent);
-           Parent.SetCurrentPanel(RMP, "Right Menu Panel", -1, -1);
+           Parent.SetCurrentPanel(RMP, "Right Menu Panel", 500, 350,"West");
           // RMP.setParent(Parent);
            
             
@@ -109,8 +109,9 @@ public class LoginPanel extends PanelParent implements ActionListener
         else if (O == this.Register)
         {
           RegisterPanel RP = new RegisterPanel();
-         Parent.SetCurrentPanel(RP, "Registration", 0, 0);
+         Parent.SetCurrentPanel(RP, "Registration", 0, 0, "Center");
          RP.setParent(Parent);
+         RP.Parent.JF.setSize(300, 200);
          
         }
     }

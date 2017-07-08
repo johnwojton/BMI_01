@@ -46,7 +46,7 @@ public class MainPanel extends JPanel
         this.add(JP, BorderLayout.NORTH);
     }
    
-    JPanel SetCurrentPanel(JPanel Panel, String Title, int sizex, int sizey)
+    JPanel SetCurrentPanel(JPanel Panel, String Title, int sizex, int sizey, String BorderPlacement)
     {
         
         this.Title.setText(Title);
@@ -57,23 +57,23 @@ public class MainPanel extends JPanel
        
        if(sizex > 0 && sizey > 0)
        {
-           JP.setSize(sizex, sizey);
+           JF.setSize(sizex, sizey);
        }
        else if (sizex == -1 && sizey == -1)
        {
-           JP.setSize((int)ScreenWidth, (int)ScreenHeight);
+           JF.setSize((int)ScreenWidth, (int)ScreenHeight);
        }
        else
        {
-           JP.setSize(sizex, sizey);
+           JF.setSize(sizex, sizey);
        }
        JP.setVisible(true);
         JP.add(this.Title);
-        
+     
         this.remove(CurrentPanel);
         this.removeAll();
         this.CurrentPanel = Panel;
-        this.add(CurrentPanel, BorderLayout.CENTER);
+        this.add(CurrentPanel, BorderPlacement);
         this.add(JP, BorderLayout.NORTH);
         repaint();
         this.revalidate();

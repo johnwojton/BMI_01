@@ -97,7 +97,9 @@ public class RegisterPanel extends PanelParent implements ActionListener
         {
             LoginPanel LP = new LoginPanel();
             LP.setParent(Parent);
-            Parent.SetCurrentPanel(LP, "Log In", 0, 0);
+            Parent.SetCurrentPanel(LP, "Log In", 0, 0, "Center" );
+            LP.Parent.JF.setSize(300, 200);
+ 
         }
         else if(O == Register)
         {

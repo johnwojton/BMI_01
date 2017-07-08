@@ -35,16 +35,16 @@ public class RightMenuPanel extends PanelParent
          gbc.anchor = GridBagConstraints.LINE_START;
           gbc.fill = GridBagConstraints.HORIZONTAL;
          this.add(BMI, gbc);
-         gbc.gridx = 1;
-         gbc.gridy = 0;
+         gbc.gridx = 0;
+         gbc.gridy = 1;
           gbc.anchor = GridBagConstraints.LINE_END;
            gbc.fill = GridBagConstraints.HORIZONTAL;
          this.add(WtHRatio, gbc);
          gbc.gridx = 0;
-         gbc.gridy = 1;
+         gbc.gridy = 2;
          this.add(BFP, gbc);
-         gbc.gridx = 1;
-         gbc.gridy = 1;
+         gbc.gridx = 0;
+         gbc.gridy = 3;
          this.add(BMR, gbc);
     }
     private void InitVar()
